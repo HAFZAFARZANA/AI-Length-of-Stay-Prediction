@@ -1,0 +1,435 @@
+/* ========== GLOBAL RESET ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: linear-gradient(120deg, #071e26, #0b3a44);
+  overflow: hidden;
+  color: white;
+}
+
+/* ========== APP CONTAINER ========== */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== CARD BASE ========== */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 40px 48px;
+  width: 100%;
+  animation: fadeIn 0.6s ease;
+  position: relative;
+}
+
+/* ========== MAIN PAGE / FULL CARD ========== */
+.card.full {
+  width: 92vw;
+  max-width: 1300px;
+  margin: 0 auto;
+  color: white;
+}
+
+/* Center content vertically when needed */
+.card.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== TITLES ========== */
+.title {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 26px;
+}
+
+/* ========== FORM GRID ========== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  font-size: 14px;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Error handling */
+.field input.error {
+  outline: 2px solid #ff6b6b;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #ff6b6b;
+  margin-top: 4px;
+}
+
+/* Gender full width */
+.field.full {
+  grid-column: span 3;
+}
+
+/* ========== BUTTON ========== */
+button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========== LOS DISPLAY ========== */
+.los-big {
+  font-size: 48px;
+  font-weight: 700;
+  color: #00ffd5;
+  margin: 18px 0;
+}
+
+/* ========== EXPLANATION PAGE ========== */
+.explanation-page {
+  width: 100%;
+}
+
+/* SHAP chart */
+.shap-container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 24px;
+  border-radius: 20px;
+  margin: 22px auto;
+}
+
+/* Two-column explanation */
+.explain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin-top: 26px;
+}
+
+.explain-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 22px 24px;
+}
+
+.explain-box h3 {
+  margin-bottom: 12px;
+  color: #00ffd5;
+}
+
+.explain-box ul {
+  padding-left: 18px;
+}
+
+.explain-box li {
+  margin-bottom: 8px;
+  line-height: 1.55;
+}
+
+/* ========== ANIMATED BACKGROUND (EXISTING) ========== */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.14),
+    transparent 65%
+  );
+  animation: rotate 40s linear infinite;
+}
+
+.wave.delay {
+  animation-duration: 60s;
+}
+
+.symbol {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.25;
+  animation: float 14s infinite ease-in-out;
+}
+
+/* ========== NEW: DYNAMIC BACKGROUND EFFECTS (ADDED ONLY) ========== */
+
+/* Gradient drift */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 255, 213, 0.12),
+    rgba(0, 114, 255, 0.12),
+    rgba(0, 255, 213, 0.12)
+  );
+  animation: gradientDrift 22s ease-in-out infinite;
+  z-index: -3;
+  filter: blur(90px);
+}
+
+/* Light particles */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,255,213,0.18), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(0,114,255,0.18), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(0,255,213,0.15), transparent 45%);
+  animation: particleFloat 18s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Soft glow on cards */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 213, 0.25),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-35px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6%, -4%) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes particleFloat {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .field.full {
+    grid-column: span 2;
+  }
+
+  .explain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: span 1;
+  }
+
+  .card.full {
+    padding: 28px 22px;
+  }
+}
+/* ============================= */
+/* 🧠 AI THINKING MICRO EFFECT */
+/* ============================= */
+
+.thinking-text {
+  position: relative;
+}
+
+.thinking-text::after {
+  content: " ⏳";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0% { content: " ⏳"; }
+  33% { content: " ⏳."; }
+  66% { content: " ⏳.."; }
+  100% { content: " ⏳..."; }
+}
+/* ============================= */
+/* 🌊 SUBTLE PARALLAX DEPTH */
+/* ============================= */
+
+.background {
+  animation: backgroundDrift 30s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundDrift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-18px);
+  }
+}
+/* ============================= */
+/* 🔥 CONFIDENCE METER (DYNAMIC) */
+/* ============================= */
+
+.confidence-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 28px;
+  text-align: center;
+}
+
+.confidence-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.8s ease;
+}
+
+/* Risk colors */
+.confidence-fill.low {
+  background: linear-gradient(90deg, #00ff9d, #00c853);
+}
+
+.confidence-fill.medium {
+  background: linear-gradient(90deg, #ffd54f, #ffb300);
+}
+
+.confidence-fill.high {
+  background: linear-gradient(90deg, #ff6b6b, #ff1744);
+}
+
+.confidence-text {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Thinking animation on button text */
+.thinking-text::after {
+  content: " ⏳";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0% { content: " ⏳"; }
+  33% { content: " ⏳."; }
+  66% { content: " ⏳.."; }
+  100% { content: " ⏳..."; }
+}
+

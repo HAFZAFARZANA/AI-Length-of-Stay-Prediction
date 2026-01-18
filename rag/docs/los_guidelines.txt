@@ -1,0 +1,4 @@
+Hospital length of stay increases with multiple comorbidities,
+renal dysfunction, respiratory instability, and inflammatory conditions.
+Patients with prior admissions often have chronic illnesses
+requiring prolonged inpatient monitoring.

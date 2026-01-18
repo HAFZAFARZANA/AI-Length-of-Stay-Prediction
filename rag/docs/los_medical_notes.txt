@@ -1,0 +1,23 @@
+RENAL DYSFUNCTION AND LOS:
+Patients with elevated creatinine (>2.0 mg/dL) often require prolonged hospitalization due to fluid imbalance, electrolyte disturbances, and possible need for dialysis.
+
+RESPIRATORY INSTABILITY AND LOS:
+Respiratory rate above 22 breaths/min is associated with respiratory distress or infection, increasing monitoring needs and hospital stay.
+
+INFLAMMATION AND INFECTION:
+Elevated neutrophil percentage (>70%) indicates acute infection or inflammation, often requiring intravenous antibiotics and extended inpatient care.
+
+PRIOR HOSPITAL ADMISSIONS:
+Patients with multiple prior admissions frequently have chronic comorbidities and slower recovery, leading to longer length of stay.
+
+BMI EFFECTS:
+Underweight patients (BMI <18.5) may have poor nutritional reserves, while obese patients (BMI >30) face increased complication risk, both contributing to longer LOS.
+
+CARDIOVASCULAR STRESS:
+Abnormal pulse rates (<60 or >100 bpm) suggest cardiovascular instability, requiring continuous monitoring.
+
+ANEMIA AND LOS:
+Low hematocrit (<35%) is associated with delayed recovery and increased hospitalization duration.
+
+CLINICAL DECISION NOTE:
+Length of stay is influenced by the combination of comorbidities rather than a single factor.
